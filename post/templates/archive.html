@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{{ archive_posts.0.category }}{% endblock %}
+
+{% block main %}
+
+    {% if archive_posts %}
+
+    <div class="archives">
+        {% for archive_post in archive_posts %}
+
+            <article class="archive-article archive-type-post">
+              <div class="archive-article-inner">
+                <header class="archive-article-header">
+                <a href="#" class="archive-article-date">
+                     <time>{{ archive_post.created.year }} {{ archive_post.created.month }}</time>
+                </a>
+
+                 <h1 itemprop="name">
+                      <a class="archive-article-title" target="_blank" href="/post/{{ archive_post.id }}">{{ archive_post.title }}</a>
+                 </h1>
+                 </header>
+              </div>
+            </article>
+
+
+        {% endfor %}
+
+    </div>
+
+
+    {% else %}
+
+        <div class="archives">
+            无记录
+         </div>
+
+    {% endif %}
+
+
+{% endblock main %}

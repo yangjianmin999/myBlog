@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% load my_markdown %}
+
+{% block main %}
+
+    <article class="article article-type-post">
+        <div class="article-meta">
+          <a class="article-date">
+            <time>{{ post.created|date:'Y年m月d日' }}</time>
+          </a>
+          <div class="article-category">
+            <a class="article-category-link" href="#" target="_blank">{{ post.category.cname }}</a>
+          </div>
+        </div>
+        <div class="article-inner">
+            <header class="article-header">
+                <h1 itemprop="name">
+                    <a class="article-title">{{ post.title }}</a>
+                </h1>
+            </header>
+      <div class="article-entry" itemprop="articleBody">
+        <h2>前言</h2>
+        <hr>
+        {{ post.content|md|safe }}
+
+      </div>
+    <footer class="article-footer">
+      <a data-url="存放文章的url" class="article-share-link">分享</a>
+    </footer>
+  </div>
+    </article>
+
+{% endblock main %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

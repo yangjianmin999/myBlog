@@ -1,0 +1,48 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div id="container">
+        <div id="wrap">
+            <style>
+                    form {
+                      position: relative;
+                      width: 150px;
+                      margin: 0 auto;
+                    }
+                    .d1{
+                        float: right;
+                        line-height: 67px;
+                    }
+                    .d1 input {
+                      width: 100px;
+                      height: 30px;
+                      border: 2px solid darkred;
+                      border-radius: 5px;
+                      outline: none;
+                      background: white;
+                      color: #1e242a;
+                    }
+                 </style>
+            {% include 'header.html' %}
+            <div class="outer">
+                <div id="main">
+                    {% block main %}
+                    {% endblock main %}
+                </div>
+                {% include 'right.html' %}
+            </div>
+            {% include 'footer.html' %}
+        </div>
+
+    </div>
+
+</body>
+</html>
