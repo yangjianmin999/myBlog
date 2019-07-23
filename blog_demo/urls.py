@@ -1,3 +1,4 @@
+#coding=utf-8
 """blog_demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -14,11 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
+import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('post.urls')),
     # url(r'^search/', include('haystack.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  #没有这一句无法显示上传的图片

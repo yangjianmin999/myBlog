@@ -187,3 +187,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "upload/"
 CKEDITOR_JQUERY_URL = 'cdn.bootcss.com/jquery/1.11.3/jquery.min.js'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
